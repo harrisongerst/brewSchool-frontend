@@ -4,6 +4,7 @@ export default function Home(props) {
   return (
     <div>
         <Header/>
+        <div>Content</div>
     </div>
   )
 }

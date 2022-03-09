@@ -18,6 +18,12 @@ export default function Header(props) {
         <Link to="/">
           <div>Home</div>
         </Link>
+        <Link to="/create">
+          <div>New Brew</div>
+        </Link>
+        <Link to="/signup">
+          <div>Signup</div>
+        </Link>
       </nav>
     </header>
   )
