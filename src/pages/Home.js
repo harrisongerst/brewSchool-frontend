@@ -21,7 +21,7 @@ export default function Home(props) {
     const loaded = () => {
         return posts.map((post) => (
           <div key={post._id}>
-            <Link to={`/posts/${post._id}`}>
+            <Link to={`/recipe/${post._id}`}>
               <h1>{post.title}</h1>
             </Link>
             <h3>{post.description}</h3>
