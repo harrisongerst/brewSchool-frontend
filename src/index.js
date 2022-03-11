@@ -15,8 +15,8 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home URL={URL} />}>
       </Route>
-      <Route path="/recipe/:ID" element={<Show URL={URL}/>} />
       <Route path="create" element={<Create URL={URL}/>} />
+      <Route path="recipe/:ID" element={<Show URL={URL}/>} />
     </Routes>
   </React.StrictMode>
   </Router>,
