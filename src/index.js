@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Show from './pages/Show';
 import Create from './pages/Create';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const URL = "https://brew-school.herokuapp.com/"
 

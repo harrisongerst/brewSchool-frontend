@@ -42,8 +42,10 @@ export default function Create(props) {
         <br/>
         <input type="number" name="brewTimeSeconds" placeholder="brewTimeSeconds"/>
         <br/>
+        <button>Add Equipment</button>
         <input name="requiredEquipment" placeholder="requiredEquipment"/>
         <br/>
+        <button>Add Step</button>
         <input name="instructions" placeholder="instructions"/>
       </form>
     </div>
