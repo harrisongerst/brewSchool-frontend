@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Show from './pages/Show';
 import Create from './pages/Create';
+import Signup from './pages/Signup'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const URL = "https://brew-school.herokuapp.com/"
@@ -18,6 +19,7 @@ ReactDOM.render(
       </Route>
       <Route path="create" element={<Create URL={URL}/>} />
       <Route path="recipe/:ID" element={<Show URL={URL}/>} />
+      <Route path="signup" element={<Signup URL={URL}/>} />
     </Routes>
   </React.StrictMode>
   </Router>,
