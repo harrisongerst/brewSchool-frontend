@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../components/Header';
 import {useState, useEffect} from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import BrewCard from "../components/BrewCard";
 
 
 
@@ -21,10 +22,7 @@ export default function Home(props) {
     const loaded = () => {
         return posts.map((post) => (
           <div key={post._id}>
-            <Link to={`/recipe/${post._id}`}>
-              <h1>{post.title}</h1>
-            </Link>
-            <h3>{post.description}</h3>
+            <BrewCard post={post} />
           </div>
         ));
       };
