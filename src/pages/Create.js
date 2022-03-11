@@ -19,27 +19,32 @@ export default function Create(props) {
     <div>
       <h1>Create New Brew</h1>
       <form>
-        <input label="username"></input>
+        <input name="username" placeholder="username"/> 
         <br/>
-        <input label="username"></input>
+        <input name="likes" placeholder="likes"/>
         <br/>
-        <input label="username"></input>
+        <input name="title" placeholder="title"/>
         <br/>
-        <input label="username"></input>
+        <input name="description" placeholder="description"/>
         <br/>
-        <input label="username"></input>
+        <input name="date" placeholder="date"/>
         <br/>
-        <input label="username"></input>
+        <div>
+          <label>brew type: </label>
+        <input type="radio" value="Pourover" name="brewType" />Pourover
+        <input type="radio" value="Aeropress" name="brewType" />Aeropress
+        <input type="radio" value="Other" name="brewType" />Other
+        </div>
+        <input name="coffeeAmount" placeholder="coffeeAmount"/>
         <br/>
-        <input label="username"></input>
+        <label>Iced?: </label>
+        <input type="checkbox" value="true" name="iced" placeholder="iced"/>
         <br/>
-        <input label="username"></input>
+        <input type="number" name="brewTimeSeconds" placeholder="brewTimeSeconds"/>
         <br/>
-        <input label="username"></input>
+        <input name="requiredEquipment" placeholder="requiredEquipment"/>
         <br/>
-        <input label="username"></input>
-        <br/>
-        <input label="username"></input>
+        <input name="instructions" placeholder="instructions"/>
       </form>
     </div>
   )
