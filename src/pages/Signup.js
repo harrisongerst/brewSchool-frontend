@@ -3,14 +3,49 @@ import Header from '../components/Header'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 
-export default function Signup() {
+export default function Login(props) {
+    const URL = props.URL 
+    const navigate = useNavigate()
+    function handleRegister(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const user = {
+            username: form[0].value,
+            password: form[1].value
+        }
+
+        fetch(URL + "register", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem("token", data.token)
+        })
+    }
+
+    useEffect(() => {
+        fetch(URL + "userLoggedIn", {
+            headers: { "x-access-token": localStorage.getItem("token")}
+        })
+        .then(res => res.json())
+        .then(data => data.isLoggedIn ? navigate("/", {replace: true}): null)
+    }, [])
+
+
   return (
     <div>
       <Header/>
     <Container className="my-3">
-      <h2>Create an account</h2>
-      <Form>
+      <h2>Signup</h2>
+      <Form onSubmit={event => handleRegister(event)}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Username</Form.Label>
     <Form.Control type="text" placeholder="Enter a username" name="username" />
