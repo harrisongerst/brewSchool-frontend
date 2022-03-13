@@ -36,7 +36,7 @@ export default function Login(props) {
             headers: { "x-access-token": localStorage.getItem("token")}
         })
         .then(res => res.json())
-        .then(data => data.isLoggedIn ? navigate("/home", {replace: true}): null)
+        .then(data => data.isLoggedIn ? navigate("/", {replace: true}): null)
     }, [])
 
 
