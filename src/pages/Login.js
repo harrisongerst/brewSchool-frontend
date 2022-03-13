@@ -18,7 +18,7 @@ export default function Login(props) {
             password: form[1].value
         }
 
-        fetch(URL + "/login", {
+        fetch(URL + "login", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -32,7 +32,7 @@ export default function Login(props) {
     }
 
     useEffect(() => {
-        fetch(URL + "/userLoggedIn", {
+        fetch(URL + "userLoggedIn", {
             headers: { "x-access-token": localStorage.getItem("token")}
         })
         .then(res => res.json())
