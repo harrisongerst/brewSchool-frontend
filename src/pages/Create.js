@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container"
 
 export default function Create(props) {
   const [newForm, setNewForm] = useState({
@@ -13,41 +17,30 @@ export default function Create(props) {
     iced: "",
     brewTimeSeconds: "",
     requiredEquipment: [],
-    instructions: []
-  })
+    instructions: [],
+  });
   return (
     <div>
+      <Header />
+      <Container className="my-3">
       <h1>Create New Brew</h1>
-      <form>
-        <input name="username" placeholder="username"/> 
-        <br/>
-        <input name="likes" placeholder="likes"/>
-        <br/>
-        <input name="title" placeholder="title"/>
-        <br/>
-        <input name="description" placeholder="description"/>
-        <br/>
-        <input name="date" placeholder="date"/>
-        <br/>
-        <div>
-          <label>brew type: </label>
-        <input type="radio" value="Pourover" name="brewType" />Pourover
-        <input type="radio" value="Aeropress" name="brewType" />Aeropress
-        <input type="radio" value="Other" name="brewType" />Other
-        </div>
-        <input name="coffeeAmount" placeholder="coffeeAmount"/>
-        <br/>
-        <label>Iced?: </label>
-        <input type="checkbox" value="true" name="iced" placeholder="iced"/>
-        <br/>
-        <input type="number" name="brewTimeSeconds" placeholder="brewTimeSeconds"/>
-        <br/>
-        <button>Add Equipment</button>
-        <input name="requiredEquipment" placeholder="requiredEquipment"/>
-        <br/>
-        <button>Add Step</button>
-        <input name="instructions" placeholder="instructions"/>
-      </form>
+      <Form>
+        <Form.Group className="mb-3">
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" placeholder="Title" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" >
+          <Form.Label>Description</Form.Label>
+          <Form.Control type="textarea" as="textarea" rows={2} placeholder="Enter a short description of your brew technique" />
+        </Form.Group>
+        
+        
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+      </Container>
     </div>
-  )
+  );
 }
