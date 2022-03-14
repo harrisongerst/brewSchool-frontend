@@ -1,39 +1,40 @@
-import React from 'react';
-import Header from '../components/Header';
-import {useState, useEffect} from "react";
+import React from "react";
+import Header from "../components/Header";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BrewCard from "../components/BrewCard";
-
-
+import Sidebar from "../components/Sidebar";
+import Container from "react-bootstrap/Container";
 
 export default function Home(props) {
-    const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState(null);
 
-    const getPostData = async () => {
-        const response = await fetch(props.URL + "posts");
+  const getPostData = async () => {
+    const response = await fetch(props.URL + "posts");
 
-        const data = await response.json();
+    const data = await response.json();
 
-        setPosts(data)
-    }
+    setPosts(data);
+  };
 
-    useEffect(() => getPostData());
+  useEffect(() => getPostData());
 
-    const loaded = () => {
-        return posts.map((post) => (
-          <div key={post._id}>
-            <BrewCard post={post} />
-          </div>
-        ));
-      };
+  const loaded = () => {
+    return posts.map((post) => (
+      <div key={post._id}>
+        <BrewCard post={post} />
+      </div>
+    ));
+  };
 
-    const notLoaded = () => (
-        <div>Brewing..</div>
-    )
+  const notLoaded = () => <div>Brewing..</div>;
   return (
     <div>
-        <Header/>
+      <Header />
+      <Container>
+        <Sidebar />
         <div>{posts ? loaded() : notLoaded()}</div>
+      </Container>
     </div>
-  )
+  );
 }
