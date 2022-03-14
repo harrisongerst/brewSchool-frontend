@@ -26,6 +26,21 @@ export default function Create(props) {
 
   }
 
+  function removeEquipmentInput(e) {
+    e.preventDefault();
+
+  }
+
+  function addStepInput(e) {
+    e.preventDefault();
+
+  }
+  
+  function removeStepInput(e) {
+    e.preventDefault();
+
+  }
+
   return (
     <div>
       <Header />
