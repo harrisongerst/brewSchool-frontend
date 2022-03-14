@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container"
+import React from 'react'
 
 export default function Create(props) {
 
@@ -23,11 +24,17 @@ export default function Create(props) {
 
   function addEquipmentInput(e) {
     e.preventDefault();
+    equipmentInputs.length < 5
+    ? setEquipmentInputs([...equipmentInputs, equipmentInputs[equipmentInputs.length-1]+1])
+    : setEquipmentInputs([...equipmentInputs])
 
   }
 
   function removeEquipmentInput(e) {
     e.preventDefault();
+    equipmentInputs.length > 1
+    ? setEquipmentInputs(equipmentInputs.slice(0, equipmentInputs.length -1))
+    : setEquipmentInputs([...equipmentInputs])
 
   }
 
@@ -78,10 +85,14 @@ export default function Create(props) {
           <Form.Label>Overall time to brew</Form.Label>
           <Form.Control type="number" placeholder="Enter the amount of time in seconds" />
         </Form.Group>
-
         <Form.Group className="mb-3">
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Title" />
+        <Form.Label>Required Equipment</Form.Label>
+        {equipmentInputs.map(equipNum =>(
+          <React.Fragment key={equipNum}>
+            <Form.Control type="text" placeholder="Title" />
+          </React.Fragment>
+        ))}
+        <Button variant="success" onClick={(e) => addEquipmentInput(e)} >Add Equipment</Button><Button onClick={(e) => removeEquipmentInput(e)} variant="danger">Remove Equipment</Button>
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
