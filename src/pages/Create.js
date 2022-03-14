@@ -10,8 +10,6 @@ export default function Create(props) {
   const [equipmentInputs, setEquipmentInputs] = useState([1]);
   const [stepInputs, setStepInputs] = useState([1,2,3]);
   const [newForm, setNewForm] = useState({
-    username: "",
-    likes: "",
     title: "",
     description: "",
     date: "",
