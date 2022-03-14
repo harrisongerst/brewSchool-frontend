@@ -9,7 +9,7 @@ import React from 'react'
 export default function Create(props) {
 
   const [equipmentInputs, setEquipmentInputs] = useState([1]);
-  const [stepInputs, setStepInputs] = useState([1,2,3]);
+  const [stepInputs, setStepInputs] = useState([1,2]);
   const [newForm, setNewForm] = useState({
     title: "",
     description: "",
@@ -40,12 +40,16 @@ export default function Create(props) {
 
   function addStepInput(e) {
     e.preventDefault();
-
+    stepInputs.length < 10
+    ? setStepInputs([...stepInputs, stepInputs[stepInputs.length-1]+1])
+    : setStepInputs([...stepInputs])
   }
   
   function removeStepInput(e) {
     e.preventDefault();
-
+    stepInputs.length > 2
+    ? setStepInputs(stepInputs.slice(0, stepInputs.length -1))
+    : setStepInputs([...stepInputs])
   }
 
   return (
@@ -89,10 +93,20 @@ export default function Create(props) {
         <Form.Label>Required Equipment</Form.Label>
         {equipmentInputs.map(equipNum =>(
           <React.Fragment key={equipNum}>
-            <Form.Control type="text" placeholder="Title" />
+            <Form.Control type="text" placeholder="Equipment i.e 'Gooseneck Kettle'" />
           </React.Fragment>
         ))}
         <Button variant="success" onClick={(e) => addEquipmentInput(e)} >Add Equipment</Button><Button onClick={(e) => removeEquipmentInput(e)} variant="danger">Remove Equipment</Button>
+        </Form.Group>
+        <Form.Label>Brew Instructions:</Form.Label>
+        <Form.Group className="mb-3">
+        {stepInputs.map(stepNum =>(
+          <React.Fragment key={stepNum}>
+            <Form.Label>Step {stepNum}:</Form.Label>
+            <Form.Control type="text" placeholder="'Grind coffee medium fine'" />
+          </React.Fragment>
+        ))}
+        <Button variant="success" onClick={(e) => addStepInput(e)} >Add Step</Button><Button onClick={(e) => removeStepInput(e)} variant="danger">Remove Step</Button>
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
