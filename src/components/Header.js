@@ -17,11 +17,20 @@ export default function Header(props) {
     <header>
       <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand as={NavLink} to="/" >Brew School</Navbar.Brand>
+    <Navbar.Brand as={NavLink} to="/" >
+    <img
+          alt="coffee cup emoji"
+          src="https://hotemoji.com/images/emoji/a/1m4i86g1m6o3sa.png"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{' '}
+      Brew School</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link as={NavLink} to="/create">New Brew</Nav.Link>
+        <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
         <Nav.Link as={NavLink} to="/signup">Signup</Nav.Link>
         <Button variant="danger" onClick={logout}>Logout</Button>
       </Nav>
