@@ -7,50 +7,23 @@ import React from 'react'
 
 export default function Create(props) {
 
-  const [equipmentInputs, setEquipmentInputs] = useState([1]);
-  const [stepInputs, setStepInputs] = useState([1,2]);
+
   const [newForm, setNewForm] = useState({
     title: "",
     description: "",
-    date: "",
     brewType: "",
     coffeeAmount: "",
     iced: "",
     brewTimeSeconds: "",
-    requiredEquipment: [],
-    instructions: [],
+    requiredEquipment: "",
+    instructions: "",
   });
 
-  function addEquipmentInput(e) {
-    e.preventDefault();
-    equipmentInputs.length < 5
-    ? setEquipmentInputs([...equipmentInputs, equipmentInputs[equipmentInputs.length-1]+1])
-    : setEquipmentInputs([...equipmentInputs])
-
+  const handleChange = (e) => {
+    setNewForm({...newForm, [e.target.name] : e.target.value})
   }
 
-  function removeEquipmentInput(e) {
-    e.preventDefault();
-    equipmentInputs.length > 1
-    ? setEquipmentInputs(equipmentInputs.slice(0, equipmentInputs.length -1))
-    : setEquipmentInputs([...equipmentInputs])
-
-  }
-
-  function addStepInput(e) {
-    e.preventDefault();
-    stepInputs.length < 10
-    ? setStepInputs([...stepInputs, stepInputs[stepInputs.length-1]+1])
-    : setStepInputs([...stepInputs])
-  }
-  
-  function removeStepInput(e) {
-    e.preventDefault();
-    stepInputs.length > 2
-    ? setStepInputs(stepInputs.slice(0, stepInputs.length -1))
-    : setStepInputs([...stepInputs])
-  }
-
+ 
   return (
     <div>
       <Header />
@@ -59,54 +32,46 @@ export default function Create(props) {
       <Form>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Title" />
+          <Form.Control type="text" name="title" value={newForm.title} onChange={handleChange} placeholder="Title" />
         </Form.Group>
 
         <Form.Group className="mb-3" >
           <Form.Label>Description</Form.Label>
-          <Form.Control type="textarea" as="textarea" rows={2} placeholder="Enter a short description of your brew technique" />
+          <Form.Control type="textarea" as="textarea" name="description" rows={2} value={newForm.description} onChange={handleChange} placeholder="Enter a short description of your brew technique" />
         </Form.Group>
         
         <Form.Group className="mb-3">
           <Form.Label>Brew Type</Form.Label>
-          <Form.Check type="radio" label="Pourover" />
-          <Form.Check type="radio" label="Aeropress" />
-          <Form.Check type="radio" label="Other" />
+          <Form.Check type="radio" name="brewType" label="Pourover" />
+          <Form.Check type="radio" name="brewType" label="Aeropress" />
+          <Form.Check type="radio" name="brewType" label="Other" />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Coffee Amount (in grams)</Form.Label>
-          <Form.Control type="number" placeholder="Enter an amount of grams" />
+          <Form.Control type="number" name="coffeeAmount" value={newForm.coffeeAmount} onChange={handleChange} placeholder="Enter an amount of grams" />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Is this for iced coffee?</Form.Label>
-          <Form.Check type="checkbox" label="" />
+          <Form.Check type="checkbox" name="iced" label="" />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Overall time to brew</Form.Label>
-          <Form.Control type="number" placeholder="Enter the amount of time in seconds" />
+          <Form.Control type="number" name="brewTimeSeconds" value={newForm.brewTimeSeconds} onChange={handleChange} placeholder="Enter the amount of time in seconds" />
         </Form.Group>
+
         <Form.Group className="mb-3">
-        <Form.Label>Required Equipment</Form.Label>
-        {equipmentInputs.map(equipNum =>(
-          <React.Fragment key={equipNum}>
-            <Form.Control type="text" placeholder="Equipment i.e 'Gooseneck Kettle'" />
-          </React.Fragment>
-        ))}
-        <Button variant="success" onClick={(e) => addEquipmentInput(e)} >Add Equipment</Button><Button onClick={(e) => removeEquipmentInput(e)} variant="danger">Remove Equipment</Button>
+          <Form.Label>Required Equipment</Form.Label>
+          <Form.Control type="text" name="brewTimeSeconds" value={newForm.requiredEquipment} onChange={handleChange} placeholder="Enter equipment seperated by a comma EXAMPLE: 'Kettle, Water '" />
         </Form.Group>
-        <Form.Label>Brew Instructions:</Form.Label>
-        <Form.Group className="mb-3">
-        {stepInputs.map(stepNum =>(
-          <React.Fragment key={stepNum}>
-            <Form.Label>Step {stepNum}:</Form.Label>
-            <Form.Control type="text" placeholder="'Grind coffee medium fine'" />
-          </React.Fragment>
-        ))}
-        <Button variant="success" onClick={(e) => addStepInput(e)} >Add Step</Button><Button onClick={(e) => removeStepInput(e)} variant="danger">Remove Step</Button>
+
+        <Form.Group className="mb-3" >
+          <Form.Label>Instruction steps</Form.Label>
+          <Form.Control type="textarea" as="textarea" name="description" rows={3} value={newForm.instructions} onChange={handleChange} placeholder="Enter individual steps seperated by a comma" />
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Submit
         </Button>
