@@ -73,12 +73,12 @@ export default function Create(props) {
 
         <Form.Group className="mb-3">
           <Form.Label>Required Equipment</Form.Label>
-          <Form.Control type="text" name="brewTimeSeconds" value={newForm.requiredEquipment} onChange={handleChange} placeholder="Enter equipment seperated by a comma EXAMPLE: 'Kettle, Water '" />
+          <Form.Control type="text" name="requiredEquipment" value={newForm.requiredEquipment} onChange={handleChange} placeholder="Enter equipment seperated by a comma EXAMPLE: 'Kettle, Water '" />
         </Form.Group>
 
         <Form.Group className="mb-3" >
           <Form.Label>Instruction steps</Form.Label>
-          <Form.Control type="textarea" as="textarea" name="description" rows={3} value={newForm.instructions} onChange={handleChange} placeholder="Enter individual steps seperated by a comma" />
+          <Form.Control type="textarea" as="textarea" name="instructions" rows={3} value={newForm.instructions} onChange={handleChange} placeholder="Enter individual steps seperated by a comma" />
         </Form.Group>
 
         <Button variant="primary" type="submit">
