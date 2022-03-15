@@ -28,9 +28,6 @@ export default function Show(props) {
       {post.instructions.map((step, i) => (
         <p>{i+1}.  {step}</p>
       ))}
-
-      
-    
     </div>);
   };
 
