@@ -26,15 +26,12 @@ export default function Header(props) {
           className="d-inline-block align-top"
         />{' '}
       Brew School</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
+      <Nav className="ml-auto">
         <Nav.Link as={NavLink} to="/create">New Brew</Nav.Link>
         <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
         <Nav.Link as={NavLink} to="/signup">Signup</Nav.Link>
         <Button variant="danger" onClick={logout}>Logout</Button>
       </Nav>
-    </Navbar.Collapse>
   </Container>
 </Navbar>
     </header>
