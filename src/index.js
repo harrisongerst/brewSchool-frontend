@@ -8,6 +8,7 @@ import Show from './pages/Show';
 import Create from './pages/Create';
 import Signup from './pages/Signup'
 import Login from './pages/Login';
+import UpdatePost from './pages/UpdatePost';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const URL = "https://brew-school.herokuapp.com/"
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="recipe/:ID" element={<Show URL={URL}/>} />
       <Route path="signup" element={<Signup URL={URL}/>} />
       <Route path="login" element={<Login URL={URL}/>} />
+      <Route path="update/:ID" element={<UpdatePost URL={URL} />} />
     </Routes>
   </React.StrictMode>
   </Router>,

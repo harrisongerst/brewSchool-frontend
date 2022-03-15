@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import React from "react";
 
 export default function UpdatePost(props) {
+  const { ID } = useParams();
   const [newForm, setNewForm] = useState({
     title: "",
     description: "",
@@ -27,10 +29,10 @@ export default function UpdatePost(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const URL = props.URL + "posts";
+    const URL = props.URL + "posts/" + ID;
     try {
      const res = await fetch(URL, {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-type": "application/json",
           "x-access-token": localStorage.getItem("token"),
