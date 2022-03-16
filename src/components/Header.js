@@ -16,7 +16,7 @@ export default function Header(props) {
   return (
     <header>
       <Navbar bg="light" expand="lg">
-  <Container>
+  <Container fluid>
     <Navbar.Brand as={NavLink} to="/" >
     <img
           alt="coffee cup emoji"
