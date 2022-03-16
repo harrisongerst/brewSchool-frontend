@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import BrewCard from "../components/BrewCard";
 import Sidebar from "../components/Sidebar";
 import Container from "react-bootstrap/Container";
