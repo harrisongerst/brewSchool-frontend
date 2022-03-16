@@ -30,19 +30,19 @@ export default function FilterForm() {
           <Form.Label>Coffee Amount</Form.Label>
           <Form.Check
             type="radio"
-            name="brewType"
+            name="amountCoffee"
             value="Less than 10g"
             label="Less than 10g"
           />
           <Form.Check
             type="radio"
-            name="brewType"
+            name="amountCoffee"
             value="Between 10g and 20g"
             label="Between 10g and 20g"
           />
           <Form.Check
             type="radio"
-            name="brewType"
+            name="amountCoffee"
             value="Greater than 20g"
             label="Greater than 20g"
           />
