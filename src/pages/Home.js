@@ -38,6 +38,7 @@ export default function Home(props) {
             <Sidebar />
           </Col>
           <Col xs={9}>
+            <h1>All Brews:</h1>
             <div>{posts ? loaded() : notLoaded()}</div>
           </Col>
         </Row>
