@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import BrewCard from "../components/BrewCard";
 import Sidebar from "../components/Sidebar";
 import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export default function Home(props) {
   const [posts, setPosts] = useState(null);
@@ -30,9 +32,15 @@ export default function Home(props) {
   return (
     <div>
       <Header />
-      <Container>
-        <Sidebar />
-        <div>{posts ? loaded() : notLoaded()}</div>
+      <Container fluid>
+        <Row>
+          <Col>
+            <Sidebar />
+          </Col>
+          <Col xs={9}>
+            <div>{posts ? loaded() : notLoaded()}</div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
