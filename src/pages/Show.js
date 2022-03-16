@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import Modal from "react-bootstrap/Modal"
-import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 export default function Show(props) {
   const navigate = useNavigate()
@@ -43,6 +44,7 @@ export default function Show(props) {
 
   const loaded = () => {
     return (<div>
+      <Container>
       <h1>{post.title}</h1>
       <h2>By: {post.username}</h2>
       <p>{post.description}</p>
@@ -72,7 +74,9 @@ export default function Show(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>);
+      </Container>
+    </div>
+    );
   };
 
   const notLoaded = () => {
