@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 export default function Show(props) {
   const navigate = useNavigate()
@@ -45,21 +47,30 @@ export default function Show(props) {
   const loaded = () => {
     return (<div>
       <Container>
+        <Row>
+          <Col>
       <h1>{post.title}</h1>
       <h2>By: {post.username}</h2>
       <p>{post.description}</p>
-      <p>Required Equipment</p>
-      {post.requiredEquipment.map((item, i) => (
-        <p>{i+1}.  {item}</p>
-      ))}
-      <p>Instructions</p>
-      {post.instructions.map((step, i) => (
-        <p>{i+1}.  {step}</p>
-      ))}
+      <p>Brew Type: {post.brewType}</p>
+      <p>Amount of coffee: {post.coffeeAmount}g</p>
+      <p>Total time to brew: {post.brewTimeSeconds} seconds</p>
       <Button variant="danger" onClick={handleShow}>
         DELETE
       </Button>
-
+          </Col>
+          <Col>
+      <h3>Required Equipment</h3>
+      {post.requiredEquipment.map((item, i) => (
+        <p>{i+1}.  {item}</p>
+      ))}
+      </Col>
+      <Col>
+      <h3>Instructions</h3>
+      {post.instructions.map((step, i) => (
+        <p>{i+1}.  {step}</p>
+      ))}
+      </Col>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Are you sure you want to delete this post?</Modal.Title>
@@ -74,6 +85,7 @@ export default function Show(props) {
           </Button>
         </Modal.Footer>
       </Modal>
+      </Row>
       </Container>
     </div>
     );
