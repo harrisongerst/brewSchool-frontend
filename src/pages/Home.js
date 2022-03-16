@@ -17,7 +17,7 @@ export default function Home(props) {
     setPosts(data);
   };
 
-  useEffect(() => getPostData());
+  useEffect(() => getPostData(), []);
 
   const loaded = () => {
     return posts.map((post) => (
